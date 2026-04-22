@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: var(--font-roboto);
+  --font-body: var(--font-roboto);
+  --font-mono: var(--font-mono);
+  
+  --color-background: var(--background-hex);
+  --color-foreground: var(--foreground-hex);
+  --color-card: var(--card-hex);
+  --color-card-foreground: var(--foreground-hex);
+  --color-primary: var(--foreground-hex);
+  --color-primary-foreground: var(--background-hex);
+  --color-secondary: var(--secondary-hex);
+  --color-muted: var(--muted-hex);
+  --color-border: var(--border-hex);
+}
+
+:root {
+  --background-hex: #ffffff;
+  --foreground-hex: #0a111a;
+  --card-hex: #f9f9f9;
+  --secondary-hex: #e2e8f0;
+  --muted-hex: #f1f5f9;
+  --border-hex: rgba(10, 17, 26, 0.1);
+  --foreground-hsl: 213 45% 10%;
+  
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --background-hex: #030609;
+  --foreground-hex: #ffffff;
+  --card-hex: #080d14;
+  --secondary-hex: #1a2533;
+  --muted-hex: #1a2533;
+  --border-hex: rgba(255, 255, 255, 0.1);
+  --foreground-hsl: 0 0% 100%;
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    @apply cursor-default bg-background text-foreground;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 font-body transition-colors duration-500;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .liquid-glass {
+    background: var(--glass-bg);
+    background-blend-mode: luminosity;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.2px;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--foreground-hsl) / 0.3) 0%,
+      hsl(var(--foreground-hsl) / 0.1) 20%,
+      hsl(var(--foreground-hsl) / 0) 40%,
+      hsl(var(--foreground-hsl) / 0) 60%,
+      hsl(var(--foreground-hsl) / 0.1) 80%,
+      hsl(var(--foreground-hsl) / 0.3) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .liquid-glass-strong {
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass-strong::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--foreground-hsl) / 0.4) 0%,
+      hsl(var(--foreground-hsl) / 0.1) 50%,
+      hsl(var(--foreground-hsl) / 0.4) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}

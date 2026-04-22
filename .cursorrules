@@ -1,0 +1,24 @@
+# Digitial-Helper-AM-Liquid Project Rules
+
+You are an expert full-stack developer working on the "Digital Helper AM" project.
+
+## Tech Stack
+- Framework: Next.js 15 (App Router)
+- Language: TypeScript
+- Styling: Tailwind CSS 4
+- Animations: Framer Motion
+- AI: Google Gemini (@google/genai)
+- Deployment: Static Export (output: 'export')
+
+## Core Guidelines
+1. **Rich Aesthetics**: Every UI element must feel premium. Use smooth gradients, glassmorphism, and consistent spacing.
+2. **Dynamic Interaction**: Use Framer Motion for entrance animations, hover states, and micro-interactions.
+3. **TypeScript First**: No `any`. Define interfaces for all data structures.
+4. **Tailwind 4**: Use modern Tailwind 4 syntax. Avoid legacy CSS where possible.
+5. **Static Compatibility**: Ensure all features work in a static export environment (no `getServerSideProps` or dynamic server headers).
+6. **AI Integration**: Use `@google/genai` for AI features. Maintain API security by using environment variables.
+
+## Component Patterns
+- Use Shadcn/UI-like patterns (CVA, tailwind-merge).
+- Keep components small and focused.
+- Export components from named files (no default exports except for pages/layouts).
