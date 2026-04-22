@@ -1,10 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 export const ScrollBackground = () => {
   const { scrollYProgress } = useScroll();
+
+  // Stable random particles for performance and purity
+  const particles = useMemo(() => 
+    [...Array(15)].map((_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: 4 + Math.random() * 6,
+      delay: Math.random() * 5,
+      moveX: 10 + Math.random() * 20,
+      moveY: -20 - Math.random() * 20,
+    })), []);
 
   // Advanced Parallax & Fluid Motion
   const y1 = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
@@ -48,23 +60,23 @@ export const ScrollBackground = () => {
 
       {/* Dynamic Digital Dust - Optimized for Performance */}
       <div className="absolute inset-0 hidden md:block">
-        {[...Array(15)].map((_, i) => (
+        {particles.map((p) => (
           <motion.div
-            key={i}
+            key={p.id}
             initial={{ opacity: 0 }}
             animate={{ 
               opacity: [0.1, 0.4, 0.1],
-              y: [0, -30, 0],
-              x: [0, 20, 0],
+              y: [0, p.moveY, 0],
+              x: [0, p.moveX, 0],
             }}
             transition={{ 
-              duration: 4 + Math.random() * 6, 
+              duration: p.duration, 
               repeat: Infinity,
-              delay: Math.random() * 5 
+              delay: p.delay 
             }}
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${p.left}%`,
+              top: `${p.top}%`,
             }}
             className="absolute w-1.5 h-1.5 bg-foreground/10 rounded-full blur-[1px]"
           />

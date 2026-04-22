@@ -730,7 +730,7 @@ export default function LandingPage() {
            <div className="mt-24 pt-8 text-center text-foreground/20">
               <div className="text-xl font-heading text-foreground/40 mb-3 grayscale opacity-50 uppercase tracking-tighter">DIGITALHELPER<span className="text-foreground/20">.</span>AM</div>
               <p className="text-xs font-body font-medium text-foreground/40 mb-6 italic max-w-xs mx-auto">
-                "{t.contact.footer.tagline}"
+                &quot;{t.contact.footer.tagline}&quot;
               </p>
               <p className="text-[10px] font-body font-light uppercase tracking-widest leading-loose">
                 {t.contact.footer.rights}<br />
