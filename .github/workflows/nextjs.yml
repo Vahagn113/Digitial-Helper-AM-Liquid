@@ -45,17 +45,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
           static_site_generator: next
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} install
-      - name: Rebuild lightningcss
-        run: npm rebuild lightningcss
+        run: npm install --include=optional
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: npx next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
