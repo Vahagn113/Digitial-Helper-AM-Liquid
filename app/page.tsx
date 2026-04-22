@@ -139,7 +139,7 @@ export default function LandingPage() {
   const t = translations[lang];
 
   return (
-    <main className="relative flex flex-col min-h-screen bg-background text-foreground transition-colors duration-500 overflow-x-hidden">
+    <main className="relative flex flex-col min-h-screen text-foreground transition-colors duration-500 overflow-x-hidden">
       <ScrollBackground />
 
       {/* Navigation */}

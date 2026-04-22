@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en" className={`${roboto.variable} ${robotoMono.variable} scroll-smooth`} suppressHydrationWarning>
-      <body className="antialiased bg-background text-foreground" suppressHydrationWarning>
+      <body className="antialiased text-foreground" suppressHydrationWarning>
         {children}
       </body>
     </html>
