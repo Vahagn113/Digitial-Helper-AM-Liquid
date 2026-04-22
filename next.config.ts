@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
   output: 'export',
   trailingSlash: true,
   transpilePackages: ['motion'],
