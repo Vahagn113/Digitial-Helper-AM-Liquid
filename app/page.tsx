@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect, useSyncExternalStore, useRef } from 'react';
 import { motion, useInView, AnimatePresence, useScroll, useTransform } from 'motion/react';
-import { 
-  FileText, 
-  Instagram, 
-  Globe, 
-  Cpu, 
-  CheckCircle2, 
-  ArrowUpRight, 
-  Send, 
+import {
+  FileText,
+  Instagram,
+  Globe,
+  Cpu,
+  CheckCircle2,
+  ArrowUpRight,
+  Send,
   MessageCircle,
   Star,
   ChevronRight,
@@ -29,20 +29,20 @@ import { ScrollBackground } from '@/components/ScrollBackground';
 import { ScrollToTop } from '@/components/ScrollToTop';
 
 // Custom BlurText Component as requested
-const BlurText = ({ 
-  text, 
-  className = "", 
-  delay = 100, 
-  animateBy = "word" 
-}: { 
-  text: string; 
-  className?: string; 
+const BlurText = ({
+  text,
+  className = "",
+  delay = 100,
+  animateBy = "word"
+}: {
+  text: string;
+  className?: string;
   delay?: number;
   animateBy?: "word" | "letter"
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   const elements = animateBy === "word" ? text.split(" ") : text.split("");
 
   return (
@@ -84,7 +84,7 @@ type Theme = 'light' | 'dark';
 
 export default function LandingPage() {
   const isMounted = useSyncExternalStore(
-    () => () => {},
+    () => () => { },
     () => true,
     () => false
   );
@@ -146,13 +146,13 @@ export default function LandingPage() {
 
       {/* Navigation */}
       <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
-        <motion.div 
+        <motion.div
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           className="liquid-glass rounded-full px-4 lg:px-8 py-3 flex items-center justify-between w-full max-w-5xl shadow-xl shadow-black/5"
         >
-          <motion.a 
-            href="#" 
+          <motion.a
+            href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -198,20 +198,19 @@ export default function LandingPage() {
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className={`px-3 py-1 text-[10px] font-bold rounded-full transition-all uppercase tracking-widest ${
-                    lang === l 
-                      ? 'bg-background text-foreground shadow-lg' 
+                  className={`px-3 py-1 text-[10px] font-bold rounded-full transition-all uppercase tracking-widest ${lang === l
+                      ? 'bg-background text-foreground shadow-lg'
                       : 'text-foreground/40 hover:text-foreground/80'
-                  }`}
+                    }`}
                 >
                   {l}
                 </button>
               ))}
             </div>
 
-            <motion.a 
-              href="https://t.me/digitalhelperam" 
-              target="_blank" 
+            <motion.a
+              href="https://t.me/digitalhelperam"
+              target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -258,9 +257,8 @@ export default function LandingPage() {
                     <button
                       key={l}
                       onClick={() => { setLang(l); setIsMobileMenuOpen(false); }}
-                      className={`px-4 py-2 text-[10px] font-bold rounded-xl transition-all uppercase tracking-widest ${
-                        lang === l ? 'bg-foreground text-background' : 'bg-foreground/5 text-foreground/40'
-                      }`}
+                      className={`px-4 py-2 text-[10px] font-bold rounded-xl transition-all uppercase tracking-widest ${lang === l ? 'bg-foreground text-background' : 'bg-foreground/5 text-foreground/40'
+                        }`}
                     >
                       {l}
                     </button>
@@ -275,7 +273,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 overflow-visible">
         <div className="relative z-10 max-w-5xl text-center mt-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="mb-8 overflow-hidden"
@@ -287,13 +285,13 @@ export default function LandingPage() {
           </motion.div>
 
           <h1 className="text-5xl md:text-8xl lg:text-[7rem] font-heading leading-[0.85] mb-8 lg:tracking-[-6px] tracking-[-3px] text-foreground">
-            <BlurText 
-              text={t.hero.headline.replace(/[.:]\s/g, ' ')} 
+            <BlurText
+              text={t.hero.headline.replace(/[.:]\s/g, ' ')}
               className="text-foreground"
             />
           </h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, filter: 'blur(10px)', y: 20 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
@@ -302,14 +300,14 @@ export default function LandingPage() {
             {t.hero.subheadline}
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, filter: 'blur(10px)', scale: 0.9 }}
             animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
             transition={{ delay: 1.1, duration: 1 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <motion.a 
-              href="#contact" 
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="liquid-glass-strong w-full sm:w-auto px-10 py-5 rounded-full flex items-center justify-center space-x-3 group shadow-xl"
@@ -317,9 +315,9 @@ export default function LandingPage() {
               <span className="text-lg font-bold tracking-tight">{t.hero.ctaPrimary}</span>
               <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </motion.a>
-            
-            <motion.a 
-              href="https://t.me/digitalhelperam" 
+
+            <motion.a
+              href="https://t.me/digitalhelperam"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -338,13 +336,13 @@ export default function LandingPage() {
       {/* Services Section */}
       <section id="services" className="relative py-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex flex-col items-center text-center mb-24"
           >
-             <div className="liquid-glass rounded-full px-4 py-1 mb-6">
+            <div className="liquid-glass rounded-full px-4 py-1 mb-6">
               <span className="text-[10px] font-bold text-foreground uppercase tracking-widest">{t.services.badge}</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-heading leading-[0.9] text-foreground">
@@ -402,7 +400,7 @@ export default function LandingPage() {
                     {service.desc}
                   </p>
                 </div>
-                
+
                 <ul className="space-y-4 pt-8 border-t border-foreground/5">
                   {service.items.map((item, i) => (
                     <li key={i} className="flex items-center text-sm text-foreground/60 font-body font-light">
@@ -420,12 +418,12 @@ export default function LandingPage() {
       {/* Pricing Section */}
       <section id="pricing" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="flex flex-col items-center text-center mb-20"
           >
-             <div className="liquid-glass rounded-full px-4 py-1 mb-6">
+            <div className="liquid-glass rounded-full px-4 py-1 mb-6">
               <span className="text-[10px] font-bold text-foreground uppercase tracking-widest">{t.pricing.badge}</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-heading leading-[0.9] text-foreground max-w-3xl">
@@ -457,26 +455,25 @@ export default function LandingPage() {
                 featured: false
               }
             ].map((plan, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
-                className={`liquid-glass rounded-[3rem] p-8 md:p-10 flex flex-col justify-between transition-all duration-700 shadow-xl ${
-                  plan.featured ? 'bg-foreground/5 py-12 md:py-14 border-foreground/20 ring-1 ring-foreground/20 lg:scale-105 z-10' : ''
-                }`}
+                className={`liquid-glass rounded-[3rem] p-8 md:p-10 flex flex-col justify-between transition-all duration-700 shadow-xl ${plan.featured ? 'bg-foreground/5 py-12 md:py-14 border-foreground/20 ring-1 ring-foreground/20 lg:scale-105 z-10' : ''
+                  }`}
               >
                 <div>
-                   {plan.featured && (
+                  {plan.featured && (
                     <span className="bg-foreground text-background px-4 py-1 rounded-full text-[9px] font-black uppercase tracking-[0.2em] mb-6 inline-block">
                       {t.pricing.mostPopular}
                     </span>
                   )}
                   <h3 className="text-2xl font-heading text-foreground/50 mb-2">{plan.name}</h3>
                   <div className="text-5xl font-heading text-foreground mb-10 tracking-tight">{plan.price}</div>
-                  
+
                   <ul className="space-y-4 mb-12">
                     {plan.features.map((f, idx) => (
                       <li key={idx} className="flex items-center text-sm font-body font-light text-foreground/60">
@@ -491,11 +488,10 @@ export default function LandingPage() {
                   href="#contact"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full py-5 rounded-full text-center text-sm font-bold tracking-tight transition-all shadow-md ${
-                    plan.featured 
-                      ? 'bg-foreground text-background shadow-foreground/20' 
+                  className={`w-full py-5 rounded-full text-center text-sm font-bold tracking-tight transition-all shadow-md ${plan.featured
+                      ? 'bg-foreground text-background shadow-foreground/20'
                       : 'liquid-glass-strong text-foreground'
-                  }`}
+                    }`}
                 >
                   {plan.cta}
                 </motion.a>
@@ -504,32 +500,32 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-             <motion.div 
+            <motion.div
               whileHover={{ scale: 1.02 }}
               className="liquid-glass rounded-[2rem] p-10 flex items-center justify-between group shadow-md"
-             >
-                <div>
-                   <h4 className="text-2xl font-heading text-foreground/80 mb-1">{t.pricing.business.title}</h4>
-                   <p className="text-foreground/40 text-sm font-body font-light">{t.pricing.business.desc}</p>
-                </div>
-                <div className="text-right">
-                   <div className="text-2xl font-heading text-foreground mb-1">{t.pricing.business.price}</div>
-                   <div className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest">{t.pricing.starting}</div>
-                </div>
-             </motion.div>
-             <motion.div 
+            >
+              <div>
+                <h4 className="text-2xl font-heading text-foreground/80 mb-1">{t.pricing.business.title}</h4>
+                <p className="text-foreground/40 text-sm font-body font-light">{t.pricing.business.desc}</p>
+              </div>
+              <div className="text-right">
+                <div className="text-2xl font-heading text-foreground mb-1">{t.pricing.business.price}</div>
+                <div className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest">{t.pricing.starting}</div>
+              </div>
+            </motion.div>
+            <motion.div
               whileHover={{ scale: 1.02 }}
               className="liquid-glass rounded-[2rem] p-10 flex items-center justify-between shadow-md"
-             >
-                <div>
-                   <h4 className="text-2xl font-heading text-foreground/80 mb-1">{t.pricing.webDev.title}</h4>
-                   <p className="text-foreground/40 text-sm font-body font-light">{t.pricing.webDev.desc}</p>
-                </div>
-                <div className="text-right">
-                   <div className="text-2xl font-heading text-foreground mb-1">{t.pricing.webDev.price}</div>
-                   <div className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest">{t.pricing.starting}</div>
-                </div>
-             </motion.div>
+            >
+              <div>
+                <h4 className="text-2xl font-heading text-foreground/80 mb-1">{t.pricing.webDev.title}</h4>
+                <p className="text-foreground/40 text-sm font-body font-light">{t.pricing.webDev.desc}</p>
+              </div>
+              <div className="text-right">
+                <div className="text-2xl font-heading text-foreground mb-1">{t.pricing.webDev.price}</div>
+                <div className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest">{t.pricing.starting}</div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -538,106 +534,106 @@ export default function LandingPage() {
       <section id="why-us" className="py-40 px-6 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
-             <div className="max-w-xl">
-                <motion.div 
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  className="liquid-glass rounded-full px-4 py-1 mb-8 inline-block"
-                >
-                  <span className="text-[10px] font-bold text-foreground uppercase tracking-widest">{t.whyUs.badge}</span>
-                </motion.div>
-                <h2 className="text-6xl md:text-8xl font-heading leading-[0.8] tracking-[-4px] text-foreground mb-10">
-                  {t.whyUs.title}
-                </h2>
-                <div className="space-y-8 text-foreground">
-                   {t.whyUs.items.map((item, i) => (
-                     <motion.div 
-                      key={i} 
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="flex gap-6 items-start"
-                     >
-                        <div className="liquid-glass-strong w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center">
-                           <CheckCircle2 className="w-3.5 h-3.5 text-foreground" />
-                        </div>
-                        <p className="text-xl md:text-2xl font-heading text-foreground/70 leading-tight">
-                           {item}
-                        </p>
-                     </motion.div>
-                   ))}
+            <div className="max-w-xl">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="liquid-glass rounded-full px-4 py-1 mb-8 inline-block"
+              >
+                <span className="text-[10px] font-bold text-foreground uppercase tracking-widest">{t.whyUs.badge}</span>
+              </motion.div>
+              <h2 className="text-6xl md:text-8xl font-heading leading-[0.8] tracking-[-4px] text-foreground mb-10">
+                {t.whyUs.title}
+              </h2>
+              <div className="space-y-8 text-foreground">
+                {t.whyUs.items.map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex gap-6 items-start"
+                  >
+                    <div className="liquid-glass-strong w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-foreground" />
+                    </div>
+                    <p className="text-xl md:text-2xl font-heading text-foreground/70 leading-tight">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                className="liquid-glass-strong rounded-[3rem] p-8 md:p-12 border border-foreground/10 relative z-10 shadow-2xl backdrop-blur-2xl"
+              >
+                <div className="flex items-center space-x-5 mb-10">
+                  <div className="w-16 h-16 rounded-[2rem] bg-foreground text-background flex items-center justify-center font-heading text-4xl shadow-lg">DH.</div>
+                  <div>
+                    <div className="text-2xl font-heading text-foreground">Digital Helper AM</div>
+                    <div className="text-[10px] font-bold text-foreground/30 uppercase tracking-[0.2em]">{t.whyUs.chat.status}</div>
+                  </div>
                 </div>
-             </div>
 
-             <div className="relative">
-                <motion.div 
-                  initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-                  whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  className="liquid-glass-strong rounded-[3rem] p-8 md:p-12 border border-foreground/10 relative z-10 shadow-2xl backdrop-blur-2xl"
-                >
-                   <div className="flex items-center space-x-5 mb-10">
-                      <div className="w-16 h-16 rounded-[2rem] bg-foreground text-background flex items-center justify-center font-heading text-4xl shadow-lg">DH.</div>
-                      <div>
-                        <div className="text-2xl font-heading text-foreground">Digital Helper AM</div>
-                        <div className="text-[10px] font-bold text-foreground/30 uppercase tracking-[0.2em]">{t.whyUs.chat.status}</div>
-                      </div>
-                   </div>
-
-                   <div className="space-y-6">
-                      <motion.div 
-                        initial={{ x: -20, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        className="bg-foreground/5 border border-foreground/5 p-5 rounded-3xl rounded-tl-none max-w-[85%]"
-                      >
-                        <p className="text-sm font-body font-light text-foreground/80 leading-relaxed italic">{t.whyUs.chat.msg1}</p>
-                      </motion.div>
-                      <motion.div 
-                        initial={{ x: 20, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        className="bg-foreground/10 border border-foreground/5 p-5 rounded-3xl rounded-tr-none max-w-[85%] ml-auto"
-                      >
-                        <p className="text-sm font-body font-light text-foreground/80 leading-relaxed italic">{t.whyUs.chat.msg2}</p>
-                      </motion.div>
-                      <motion.div 
-                        initial={{ x: -20, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        className="bg-foreground/5 border border-foreground/5 p-5 rounded-3xl rounded-tl-none max-w-[85%]"
-                      >
-                        <p className="text-sm font-body font-light text-foreground/80 leading-relaxed italic">{t.whyUs.chat.msg3}</p>
-                      </motion.div>
-                   </div>
-                </motion.div>
-                {/* Glow effect */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-500/10 rounded-full blur-[100px] -z-10" />
-             </div>
+                <div className="space-y-6">
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    className="bg-foreground/5 border border-foreground/5 p-5 rounded-3xl rounded-tl-none max-w-[85%]"
+                  >
+                    <p className="text-sm font-body font-light text-foreground/80 leading-relaxed italic">{t.whyUs.chat.msg1}</p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: 20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    className="bg-foreground/10 border border-foreground/5 p-5 rounded-3xl rounded-tr-none max-w-[85%] ml-auto"
+                  >
+                    <p className="text-sm font-body font-light text-foreground/80 leading-relaxed italic">{t.whyUs.chat.msg2}</p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    className="bg-foreground/5 border border-foreground/5 p-5 rounded-3xl rounded-tl-none max-w-[85%]"
+                  >
+                    <p className="text-sm font-body font-light text-foreground/80 leading-relaxed italic">{t.whyUs.chat.msg3}</p>
+                  </motion.div>
+                </div>
+              </motion.div>
+              {/* Glow effect */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-500/10 rounded-full blur-[100px] -z-10" />
+            </div>
           </div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="liquid-glass rounded-[4rem] p-8 md:p-24 border border-foreground/5 shadow-inner"
           >
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20">
-                {[
-                  { val: "200+", label: t.whyUs.stats.launched },
-                  { val: "98%", label: t.whyUs.stats.satisfaction },
-                  { val: "3.2x", label: t.whyUs.stats.conversions },
-                  { val: "5 days", label: t.whyUs.stats.delivery }
-                ].map((stat, i) => (
-                  <div key={i} className="text-center">
-                     <motion.div 
-                      key={lang + i}
-                      initial={{ scale: 0.5, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      className="text-4xl md:text-7xl font-heading text-foreground mb-2 tracking-tighter"
-                     >
-                      {stat.val}
-                     </motion.div>
-                     <div className="text-[10px] font-bold text-foreground/30 uppercase tracking-widest">{stat.label}</div>
-                  </div>
-                ))}
-             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20">
+              {[
+                { val: "200+", label: t.whyUs.stats.launched },
+                { val: "98%", label: t.whyUs.stats.satisfaction },
+                { val: "3.2x", label: t.whyUs.stats.conversions },
+                { val: "5 days", label: t.whyUs.stats.delivery }
+              ].map((stat, i) => (
+                <div key={i} className="text-center">
+                  <motion.div
+                    key={lang + i}
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    className="text-4xl md:text-7xl font-heading text-foreground mb-2 tracking-tighter"
+                  >
+                    {stat.val}
+                  </motion.div>
+                  <div className="text-[10px] font-bold text-foreground/30 uppercase tracking-widest">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -646,7 +642,7 @@ export default function LandingPage() {
       <section className="py-40 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center mb-24">
-             <div className="liquid-glass rounded-full px-4 py-1 mb-8">
+            <div className="liquid-glass rounded-full px-4 py-1 mb-8">
               <span className="text-[10px] font-bold text-foreground uppercase tracking-widest">{t.testimonials.badge}</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-heading text-foreground tracking-tight leading-[0.9]">
@@ -656,27 +652,27 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {t.testimonials.items.map((testimonial, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.02 }}
                 className="liquid-glass rounded-[3rem] p-10 md:p-16 border border-foreground/5 flex flex-col justify-between shadow-xl"
               >
                 <div>
-                   <div className="flex space-x-1 mb-10">
-                      {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-1.5 h-1.5 rounded-full bg-foreground/40" />
-                      ))}
-                   </div>
-                   <p className="text-2xl md:text-3xl font-heading text-foreground/80 leading-tight mb-12">
-                     &quot;{testimonial.text}&quot;
-                   </p>
+                  <div className="flex space-x-1 mb-10">
+                    {[...Array(5)].map((_, i) => (
+                      <div key={i} className="w-1.5 h-1.5 rounded-full bg-foreground/40" />
+                    ))}
+                  </div>
+                  <p className="text-2xl md:text-3xl font-heading text-foreground/80 leading-tight mb-12">
+                    &quot;{testimonial.text}&quot;
+                  </p>
                 </div>
-                
+
                 <div className="flex items-center space-x-5 pt-12 border-t border-foreground/5">
                   <div className="w-14 h-14 rounded-full liquid-glass-strong p-1">
-                     <div className="w-full h-full rounded-full bg-foreground/10" />
+                    <div className="w-full h-full rounded-full bg-foreground/10" />
                   </div>
                   <div>
                     <div className="text-xl font-heading text-foreground leading-none mb-1">{testimonial.author}</div>
@@ -692,53 +688,53 @@ export default function LandingPage() {
       {/* Final CTA / Footer */}
       <section id="contact" className="relative py-48 px-6 overflow-hidden flex flex-col items-center justify-center text-center">
         <div className="absolute inset-0 bg-blue-500/5 dark:bg-blue-500/10 opacity-30 blur-[150px] pointer-events-none" />
-        
+
         <div className="relative z-10 max-w-5xl">
-           <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-8xl lg:text-[9rem] font-heading leading-[0.8] mb-12 lg:tracking-[-8px] tracking-[-4px] text-foreground whitespace-pre-line"
-           >
-             {t.contact.title}
-           </motion.h2>
-           <motion.p 
+          >
+            {t.contact.title}
+          </motion.h2>
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="text-lg md:text-2xl text-foreground/40 font-body font-light mb-16 max-w-3xl mx-auto leading-snug"
-           >
-             {t.contact.subtitle}
-           </motion.p>
+          >
+            {t.contact.subtitle}
+          </motion.p>
 
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-40 overflow-visible">
-              <motion.a 
-                href="https://t.me/digitalhelperam" 
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="liquid-glass-strong px-12 py-6 rounded-full text-xl font-bold tracking-tight shadow-2xl flex items-center gap-3 transition-all"
-              >
-                {t.contact.cta}
-                <ArrowUpRight className="w-6 h-6" />
-              </motion.a>
-           </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-40 overflow-visible">
+            <motion.a
+              href="https://t.me/digitalhelperam"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="liquid-glass-strong px-12 py-6 rounded-full text-xl font-bold tracking-tight shadow-2xl flex items-center gap-3 transition-all"
+            >
+              {t.contact.cta}
+              <ArrowUpRight className="w-6 h-6" />
+            </motion.a>
+          </div>
 
-           <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 pt-16 border-t border-foreground/5 w-full">
-              <a href="https://t.me/digitalhelperam" className="text-[10px] font-bold text-foreground/30 hover:text-foreground uppercase tracking-[0.3em] transition-colors">{t.contact.telegram}</a>
-              <a href="https://instagram.com/digitalhelperam" className="text-[10px] font-bold text-foreground/30 hover:text-foreground uppercase tracking-[0.3em] transition-colors">{t.contact.instagram}</a>
-              <a href="#" className="text-[10px] font-bold text-foreground/30 hover:text-foreground uppercase tracking-[0.3em] transition-colors">{t.contact.whatsapp}</a>
-           </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 pt-16 border-t border-foreground/5 w-full">
+            <a href="https://t.me/digitalhelperam" className="text-[10px] font-bold text-foreground/30 hover:text-foreground uppercase tracking-[0.3em] transition-colors">{t.contact.telegram}</a>
+            <a href="https://instagram.com/digitalhelperam" className="text-[10px] font-bold text-foreground/30 hover:text-foreground uppercase tracking-[0.3em] transition-colors">{t.contact.instagram}</a>
+            <a href="#" className="text-[10px] font-bold text-foreground/30 hover:text-foreground uppercase tracking-[0.3em] transition-colors">{t.contact.whatsapp}</a>
+          </div>
 
-           <div className="mt-24 pt-8 text-center text-foreground/20">
-              <div className="text-xl font-heading text-foreground/40 mb-3 grayscale opacity-50 uppercase tracking-tighter">DIGITALHELPER<span className="text-foreground/20">.</span>AM</div>
-              <p className="text-xs font-body font-medium text-foreground/40 mb-6 italic max-w-xs mx-auto">
-                &quot;{t.contact.footer.tagline}&quot;
-              </p>
-              <p className="text-[10px] font-body font-light uppercase tracking-widest leading-loose">
-                {t.contact.footer.rights}<br />
-                {t.contact.footer.privacy} &nbsp;&middot;&nbsp; {t.contact.footer.terms} &nbsp;&middot;&nbsp; {t.contact.footer.contact}
-              </p>
-           </div>
+          <div className="mt-24 pt-8 text-center text-foreground/20">
+            <div className="text-xl font-heading text-foreground/40 mb-3 grayscale opacity-50 uppercase tracking-tighter">DIGITALHELPER<span className="text-foreground/20">.</span>AM</div>
+            <p className="text-xs font-body font-medium text-foreground/40 mb-6 italic max-w-xs mx-auto">
+              &quot;{t.contact.footer.tagline}&quot;
+            </p>
+            <p className="text-[10px] font-body font-light uppercase tracking-widest leading-loose">
+              {t.contact.footer.rights}<br />
+              {t.contact.footer.privacy} &nbsp;&middot;&nbsp; {t.contact.footer.terms} &nbsp;&middot;&nbsp; {t.contact.footer.contact}
+            </p>
+          </div>
         </div>
       </section>
 
