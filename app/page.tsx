@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { translations, Language } from '@/lib/translations';
 import { ScrollBackground } from '@/components/ScrollBackground';
+import { ScrollToTop } from '@/components/ScrollToTop';
 
 // Custom BlurText Component as requested
 const BlurText = ({ 
@@ -141,6 +142,7 @@ export default function LandingPage() {
   return (
     <main className="relative flex flex-col min-h-screen text-foreground transition-colors duration-500 overflow-x-hidden">
       <ScrollBackground />
+      <ScrollToTop />
 
       {/* Navigation */}
       <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
