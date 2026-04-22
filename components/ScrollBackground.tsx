@@ -6,16 +6,22 @@ import { motion, useScroll, useTransform } from 'motion/react';
 export const ScrollBackground = () => {
   const { scrollYProgress } = useScroll();
 
+  // Deterministic pseudo-random generator for React purity
+  const pseudoRandom = (seed: number) => {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+  };
+
   // Stable random particles for performance and purity
   const particles = useMemo(() => 
     [...Array(15)].map((_, i) => ({
       id: i,
-      left: Math.random() * 100,
-      top: Math.random() * 100,
-      duration: 4 + Math.random() * 6,
-      delay: Math.random() * 5,
-      moveX: 10 + Math.random() * 20,
-      moveY: -20 - Math.random() * 20,
+      left: pseudoRandom(i * 10) * 100,
+      top: pseudoRandom(i * 20) * 100,
+      duration: 4 + pseudoRandom(i * 30) * 6,
+      delay: pseudoRandom(i * 40) * 5,
+      moveX: 10 + pseudoRandom(i * 50) * 20,
+      moveY: -20 - pseudoRandom(i * 60) * 20,
     })), []);
 
   // Advanced Parallax & Fluid Motion
