@@ -48,20 +48,20 @@ export const ScrollBackground = () => {
 
       {/* Liquid Layer 1 - Primary Blob */}
       <motion.div 
-        style={{ y: y1, x: x1, rotate: rotate1, opacity, scale }}
-        className="absolute -top-[10%] -left-[10%] w-[100%] h-[100%] md:w-[80%] md:h-[80%] rounded-full bg-blue-500/20 blur-[120px] md:blur-[180px] dark:bg-blue-600/30 mix-blend-soft-light"
+        style={{ y: y1, x: x1, rotate: rotate1, opacity, scale, willChange: 'transform, opacity' }}
+        className="absolute -top-[10%] -left-[10%] w-[100%] h-[100%] md:w-[80%] md:h-[80%] rounded-full bg-blue-500/20 blur-[80px] md:blur-[120px] dark:bg-blue-600/30 mix-blend-soft-light"
       />
       
       {/* Liquid Layer 2 - Secondary Blob */}
       <motion.div 
-        style={{ y: y2, x: x2, rotate: rotate2, opacity }}
-        className="absolute top-[20%] -right-[15%] w-[90%] h-[90%] md:w-[70%] md:h-[70%] rounded-full bg-purple-500/15 blur-[100px] md:blur-[150px] dark:bg-purple-600/25 mix-blend-soft-light"
+        style={{ y: y2, x: x2, rotate: rotate2, opacity, willChange: 'transform, opacity' }}
+        className="absolute top-[20%] -right-[15%] w-[90%] h-[90%] md:w-[70%] md:h-[70%] rounded-full bg-purple-500/15 blur-[70px] md:blur-[110px] dark:bg-purple-600/25 mix-blend-soft-light"
       />
 
       {/* Liquid Layer 3 - Accent Blob */}
       <motion.div 
-        style={{ y: y3, x: x1, opacity: 0.4 }}
-        className="absolute bottom-[-10%] left-[20%] w-[80%] h-[80%] md:w-[60%] md:h-[60%] rounded-full bg-cyan-400/20 blur-[90px] md:blur-[140px] dark:bg-cyan-500/20 mix-blend-soft-light"
+        style={{ y: y3, x: x1, opacity: 0.4, willChange: 'transform, opacity' }}
+        className="absolute bottom-[-10%] left-[20%] w-[80%] h-[80%] md:w-[60%] md:h-[60%] rounded-full bg-cyan-400/20 blur-[60px] md:blur-[100px] dark:bg-cyan-500/20 mix-blend-soft-light"
       />
 
       {/* Dynamic Digital Dust - Optimized for Performance */}
@@ -71,19 +71,20 @@ export const ScrollBackground = () => {
             key={p.id}
             initial={{ opacity: 0 }}
             animate={{ 
-              opacity: [0.1, 0.4, 0.1],
-              y: [0, p.moveY, 0],
-              x: [0, p.moveX, 0],
-            }}
-            transition={{ 
-              duration: p.duration, 
-              repeat: Infinity,
-              delay: p.delay 
-            }}
-            style={{
-              left: `${p.left}%`,
-              top: `${p.top}%`,
-            }}
+                opacity: [0.1, 0.4, 0.1],
+                y: [0, p.moveY, 0],
+              }}
+              transition={{ 
+                duration: p.duration, 
+                repeat: Infinity,
+                delay: p.delay,
+                ease: "linear"
+              }}
+              style={{
+                left: `${p.left}%`,
+                top: `${p.top}%`,
+                willChange: 'transform, opacity'
+              }}
             className="absolute w-1.5 h-1.5 bg-foreground/10 rounded-full blur-[1px]"
           />
         ))}

@@ -27,7 +27,6 @@ import {
 import { translations, Language } from '@/lib/translations';
 import { ScrollBackground } from '@/components/ScrollBackground';
 
-// Custom BlurText Component as requested
 const BlurText = ({
   text,
   className = "",
@@ -49,13 +48,14 @@ const BlurText = ({
       {elements.map((el, i) => (
         <motion.span
           key={i}
-          initial={{ filter: 'blur(10px)', opacity: 0, y: 50 }}
+          initial={{ filter: 'blur(4px)', opacity: 0, y: 20 }}
           animate={isInView ? { filter: 'blur(0px)', opacity: 1, y: 0 } : {}}
           transition={{
-            duration: 0.6,
-            delay: (delay + i * 80) / 1000,
+            duration: 0.4,
+            delay: (delay + i * 50) / 1000,
             ease: [0.215, 0.61, 0.355, 1]
           }}
+          style={{ willChange: 'filter, opacity, transform' }}
           className="inline-block whitespace-pre"
         >
           {el}{animateBy === "word" && i < elements.length - 1 ? "\u00A0" : ""}
@@ -335,9 +335,10 @@ export default function LandingPage() {
       <section id="services" className="relative py-32 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
+            style={{ willChange: 'transform, opacity' }}
             className="flex flex-col items-center text-center mb-24"
           >
             <div className="liquid-glass rounded-full px-4 py-1 mb-6">
@@ -419,6 +420,8 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            style={{ willChange: 'opacity' }}
             className="flex flex-col items-center text-center mb-20"
           >
             <div className="liquid-glass rounded-full px-4 py-1 mb-6">
@@ -469,8 +472,8 @@ export default function LandingPage() {
                       {t.pricing.mostPopular}
                     </span>
                   )}
-                  <h3 className="text-2xl font-heading text-foreground/50 mb-2">{plan.name}</h3>
-                  <div className="text-5xl font-heading text-foreground mb-10 tracking-tight">{plan.price}</div>
+                  <h3 className="text-3xl font-heading text-foreground mb-6">{plan.name}</h3>
+                  <div className="h-4"></div>
 
                   <ul className="space-y-4 mb-12">
                     {plan.features.map((f, idx) => (
@@ -507,8 +510,9 @@ export default function LandingPage() {
                 <p className="text-foreground/40 text-sm font-body font-light">{t.pricing.business.desc}</p>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-heading text-foreground mb-1">{t.pricing.business.price}</div>
-                <div className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest">{t.pricing.starting}</div>
+                <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center">
+                  <ArrowUpRight className="w-5 h-5 text-foreground/40" />
+                </div>
               </div>
             </motion.div>
             <motion.div
@@ -520,8 +524,9 @@ export default function LandingPage() {
                 <p className="text-foreground/40 text-sm font-body font-light">{t.pricing.webDev.desc}</p>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-heading text-foreground mb-1">{t.pricing.webDev.price}</div>
-                <div className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest">{t.pricing.starting}</div>
+                <div className="w-10 h-10 rounded-full bg-foreground/5 flex items-center justify-center">
+                  <ArrowUpRight className="w-5 h-5 text-foreground/40" />
+                </div>
               </div>
             </motion.div>
           </div>

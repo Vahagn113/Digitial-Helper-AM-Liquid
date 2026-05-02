@@ -4,7 +4,7 @@ export const translations = {
   en: {
     nav: {
       services: "Services",
-      pricing: "Pricing",
+      pricing: "Tariffs",
       whyUs: "Why Us",
       contact: "Contact",
       getHelp: "Get Help"
@@ -43,27 +43,27 @@ export const translations = {
       }
     },
     pricing: {
-      badge: "Pricing",
-      title: "Simple, Transparent Pricing",
-      subtitle: "Choose the package that fits your needs. No hidden fees.",
+      badge: "Tariffs",
+      title: "Our Service Tariffs",
+      subtitle: "Choose the package that fits your needs.",
       mostPopular: "Most Popular",
-      starting: "Starting",
+      starting: "",
       plans: {
         basic: {
           name: "Basic",
-          price: "7,000 AMD",
+          price: "",
           features: ["CV Fix", "5 job applications", "Email support"],
           cta: "Start Basic"
         },
         standard: {
           name: "Standard",
-          price: "15,000 AMD",
+          price: "",
           features: ["CV + LinkedIn Fix", "15 job applications", "Priority support", "Interview tips"],
           cta: "Get Standard"
         },
         premium: {
           name: "Premium",
-          price: "30,000 AMD",
+          price: "",
           features: ["Full career support", "30 job applications", "1-on-1 consultation", "Cover letter template"],
           cta: "Go Premium"
         }
@@ -71,12 +71,12 @@ export const translations = {
       business: {
         title: "Business Package",
         desc: "Instagram setup + content plan",
-        price: "25,000 AMD"
+        price: ""
       },
       webDev: {
         title: "Website Creation",
         desc: "Simple landing page for your brand",
-        price: "40,000 AMD"
+        price: ""
       }
     },
     whyUs: {
@@ -138,7 +138,7 @@ export const translations = {
   am: {
     nav: {
       services: "Ծառայություններ",
-      pricing: "Գներ",
+      pricing: "Սակագներ",
       whyUs: "Ինչու մենք",
       contact: "Կապ",
       getHelp: "Օգնություն"
@@ -177,27 +177,27 @@ export const translations = {
       }
     },
     pricing: {
-      badge: "Գնացուցակ",
-      title: "Պարզ և թափանցիկ գներ",
-      subtitle: "Ընտրեք ձեր կարիքներին համապատասխան փաթեթը: Առանց թաքնված վճարների:",
+      badge: "Սակագներ",
+      title: "Մեր ծառայությունների սակագները",
+      subtitle: "Ընտրեք ձեր կարիքներին համապատասխան փաթեթը:",
       mostPopular: "Ամենահայտնի",
-      starting: "Սկսած",
+      starting: "",
       plans: {
         basic: {
           name: "Բազային",
-          price: "7,000 դրամ",
+          price: "",
           features: ["CV-ի շտկում", "5 աշխատանքի հայտ", "Էլ. փոստով աջակցություն"],
           cta: "Սկսել Բազայինը"
         },
         standard: {
           name: "Ստանդարտ",
-          price: "15,000 դրամ",
+          price: "",
           features: ["CV + LinkedIn-ի շտկում", "15 աշխատանքի հայտ", "Առաջնահերթ աջակցություն", "Հարցազրույցի խորհուրդներ"],
           cta: "Ստանալ Ստանդարտը"
         },
         premium: {
           name: "Պրեմիում",
-          price: "30,000 դրամ",
+          price: "",
           features: ["Ամբողջական կարիերայի աջակցություն", "30 աշխատանքի հայտ", "1-ը-1 խորհրդատվություն", "Ուղեկցող նամակի ձևանմուշ"],
           cta: "Անցնել Պրեմիումին"
         }
@@ -205,12 +205,12 @@ export const translations = {
       business: {
         title: "Բիզնես փաթեթ",
         desc: "Instagram-ի կարգավորում + բովանդակության պլան",
-        price: "25,000 դրամ"
+        price: ""
       },
       webDev: {
         title: "Կայքի ստեղծում",
         desc: "Landing էջ ձեր բրենդի համար",
-        price: "40,000 դրամ"
+        price: ""
       }
     },
     whyUs: {
@@ -272,7 +272,7 @@ export const translations = {
   ru: {
     nav: {
       services: "Услуги",
-      pricing: "Цены",
+      pricing: "Тарифы",
       whyUs: "Почему мы",
       contact: "Контакты",
       getHelp: "Помощь"
@@ -311,27 +311,27 @@ export const translations = {
       }
     },
     pricing: {
-      badge: "Цены",
-      title: "Простые и прозрачные цены",
-      subtitle: "Выберите пакет, который подходит вам. Никаких скрытых платежей.",
+      badge: "Тарифы",
+      title: "Тарифы на наши услуги",
+      subtitle: "Выберите пакет, который подходит вам.",
       mostPopular: "Популярный",
-      starting: "От",
+      starting: "",
       plans: {
         basic: {
           name: "Базовый",
-          price: "7,000 AMD",
+          price: "",
           features: ["Исправление резюме", "5 заявок на работу", "Email поддержка"],
           cta: "Начать Базовый"
         },
         standard: {
           name: "Стандартный",
-          price: "15,000 AMD",
+          price: "",
           features: ["Резюме + LinkedIn", "15 заявок на работу", "Приоритетная поддержка", "Советы по интервью"],
           cta: "Выбрать Стандартный"
         },
         premium: {
           name: "Премиум",
-          price: "30,000 AMD",
+          price: "",
           features: ["Полная поддержка", "30 заявок на работу", "1-на-1 консультация", "Шаблон письма"],
           cta: "Перейти на Премиум"
         }
@@ -339,12 +339,12 @@ export const translations = {
       business: {
         title: "Бизнес-пакет",
         desc: "Настройка Instagram + контент-план",
-        price: "25,000 AMD"
+        price: ""
       },
       webDev: {
         title: "Создание сайта",
         desc: "Лендинг для вашего бренда",
-        price: "40,000 AMD"
+        price: ""
       }
     },
     whyUs: {
